@@ -1,6 +1,7 @@
-import { PcepProvider } from './../../providers/pcep/pcep';
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
+
+import { PcepProvider } from './../../providers/pcep/pcep';
 
 @Component({
   selector: 'page-home',
@@ -30,7 +31,7 @@ export class HomePage {
           result.localidade + '-' +
           result.uf,
           position: 'botton', duration: 30000000 }).present();
-          this.navCtrl.push('CepPage', result);
+          this.navCtrl.push('CepPage', {objetoCep : result});
         }
         else{
           this.toast.create({ message: 'CEP inexistente no mundo, verifique por favor! ', position: 'botton', duration: 3000 }).present();

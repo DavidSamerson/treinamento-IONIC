@@ -13,13 +13,44 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding text-center>
 
   <h2>
   resultado da pesquisa: 
   </h2>
- <h2>
-   {{resultado.logradouro}}
- </h2>
+  
+  <br>
+  <br> 
+  
+  <ion-row>
+    <ion-col>
+      <h6>
+        {{resultado.logradouro}}
+      </h6>
+    </ion-col>
+    <ion-col>
+      <h6>
+        {{resultado.bairro}}
+      </h6>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <h6>
+        {{resultado.localidade}}
+      </h6>
+    </ion-col>
+    <ion-col>
+      <h6>
+        {{resultado.uf}}
+      </h6>
+    </ion-col>
+  </ion-row>
+ 
+ 
+
+
+
+
 
 </ion-content>

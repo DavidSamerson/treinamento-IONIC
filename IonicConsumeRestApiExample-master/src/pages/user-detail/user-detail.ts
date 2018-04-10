@@ -1,22 +1,16 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { Cep } from '../home/home';
-
-
 @IonicPage()
 @Component({
-  selector: 'page-cep',
-  templateUrl: 'cep.html',
+  selector: 'page-user-detail',
+  templateUrl: 'user-detail.html',
 })
-export class CepPage {
-
-  resultado: Cep;
+export class UserDetailPage {
+  user: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-
-    this.resultado = navParams.get("objetoCep");
-    
+    this.user = this.navParams.data.user;
   }
 
 }

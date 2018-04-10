@@ -7,8 +7,16 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+  <h2>Consulta de CEP</h2>
+
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>Digite o CEP: </ion-label>
+      <ion-input type="number" name="cep" [(ngModel)]="model.cep" placeholder="ex: 60332330"></ion-input>
+    </ion-item>
+  </ion-list>
+
+ <button ion-button block  color="primary" (click)="pesquiseCep()"> Pesquisar CEP </button>
+
 </ion-content>

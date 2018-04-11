@@ -1,25 +1,27 @@
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>login</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
-  <ion-list>
-    <ion-item>
-      <ion-label stacked>Email</ion-label>
-      <ion-input type="text" name="email" [(ngModule)]="model.email"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-label stacked>Senha</ion-label>
-        <ion-input type="password" name="password" [(ngModule)]="model.password"></ion-input>
+    <ion-navbar>
+      <ion-title>
+        Ionic Rest Api Example
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+  
+    <h1>Exemplo de login</h1>
+  
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>Email</ion-label>
+        <ion-input type="text" name="email" [(ngModel)]="model.email"></ion-input>
       </ion-item>
-  </ion-list>
-
-  <button ion-button block (click)="login()" color:="primary">Logar</button>
-
-</ion-content>
+  
+      <ion-item>
+        <ion-label stacked>Senha</ion-label>
+        <ion-input type="password" name="password" [(ngModel)]="model.password"></ion-input>
+      </ion-item>
+    </ion-list>
+  
+    <button ion-button block (click)="login()" color="primary">Logar</button>
+  
+  </ion-content>

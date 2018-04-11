@@ -1,8 +1,7 @@
-import { CreateAccountPageModule } from './../create-account/create-account.module';
 import { UserProvider } from './../../providers/user/user';
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, InfiniteScroll } from 'ionic-angular';
-
+import { ViewChild } from '@angular/core';
 
 @IonicPage()
 @Component({
@@ -10,15 +9,12 @@ import { IonicPage, NavController, NavParams, ToastController, InfiniteScroll } 
   templateUrl: 'user-list.html',
 })
 export class UserListPage {
-
   users: any[];
   page: number;
-
   @ViewChild(InfiniteScroll) infiniteScroll: InfiniteScroll;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              private toast: ToastController, private userProvider: UserProvider) {
-  }
+     private toast: ToastController, private userProvider: UserProvider) { }
 
   ionViewDidEnter() {
     this.users = [];
@@ -28,37 +24,26 @@ export class UserListPage {
   }
 
   getAllUsers(page: number) {
-
     this.userProvider.getAll(page)
       .then((result: any) => {
-
-        //popular a variáveml com um for
-        
-        for(var i = 0; i < result.data.lenght; i++){
+        for (var i = 0; i < result.data.length; i++) {
           var user = result.data[i];
           this.users.push(user);
         }
 
-        //paginação
-        
-        if(this.infiniteScroll){
+        if (this.infiniteScroll) {
           this.infiniteScroll.complete();
-
-          if(this.users.length == result.total){
+          if (this.users.length == result.total) {
             this.infiniteScroll.enable(false);
           }
-
         }
-
       })
       .catch((error: any) => {
-        this.toast.create({message: 'Erro ao listar os usuários. Tipo de erro:'
-        + error.error, position: 'bottom', duration: 3000}).present();
-      
+        this.toast.create({ message: 'Erro ao listar os usuários. Erro: ' + error.error, position: 'botton', duration: 3000 }).present();
       });
   }
 
-  getUser(){
+  getUsers() {
     setTimeout(() => {
       this.page += 1;
       this.getAllUsers(this.page);
@@ -71,53 +56,35 @@ export class UserListPage {
         this.navCtrl.push('UserDetailPage', { user: result.data });
       })
       .catch((error: any) => {
-        this.toast.create({ message: 'Erro ao abrir o usuário:'
-        + error.error, position: 'bottom', duration: 3000 }).present();
+        this.toast.create({ message: 'Erro ao recuperar o usuário. Erro: ' + error.error, position: 'botton', duration: 3000 }).present();
       });
+
   }
 
   openCreateUser() {
     this.navCtrl.push('UserEditPage');
   }
 
-  //editar o usuário chamando a mesma página de criação e jogando um objeto praq ele.
-  openEditUser(id: number){
-
+  openEditUser(id: number) {
     this.userProvider.get(id)
-    .then((result: any) => {
-
-      this.navCtrl.push('UserEditPage', { user: result.data });
-
-    })
-    .catch((error: any) => {
-
-      this.toast.create({
-        message: 'Erro ao editar o usuário. Token:'
-                        + error.error, position: 'bottom', duration: 3000}).present();
+      .then((result: any) => {
+        this.navCtrl.push('UserEditPage', { user: result.data });
+      })
+      .catch((error: any) => {
+        this.toast.create({ message: 'Erro ao recuperar o usuário. Erro: ' + error.error, position: 'botton', duration: 3000 }).present();
       });
-
   }
 
-  deleteUser(user: any){
-
+  deleteUser(user: any) {
     this.userProvider.remove(user.id)
-    .then((result: any) => {
+      .then((result: any) => {
+        let index = this.users.indexOf(user);
+        this.users.splice(index, 1);
 
-      let index = this.users.indexOf(user);
-      this.users.splice(index, 1);
-
-      this.toast.create({
-        message: 'Usuário deletado com sucesso.',
-         position: 'bottom', duration: 3000}).present();
-
-    })
-    .catch((error: any) => {
-
-      this.toast.create({
-        message: 'Erro ao aqpagar o usuário. Erro:'
-                  + error.error, position: 'bottom', duration: 3000}).present();
+        this.toast.create({ message: 'Usuário excluído com sucesso.', position: 'botton', duration: 3000 }).present();
+      })
+      .catch((error: any) => {
+        this.toast.create({ message: 'Erro ao excluir o usuário. Erro: ' + error.error, position: 'botton', duration: 3000 }).present();
       });
-
   }
-
 }

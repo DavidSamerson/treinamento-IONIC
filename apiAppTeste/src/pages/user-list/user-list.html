@@ -1,9 +1,3 @@
-<!--
-  Generated template for the UserListPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
@@ -14,5 +8,30 @@
 
 
 <ion-content padding>
+
+  <ion-item>
+    <ion-item-sliding *ngFor="let user of users">
+      <ion-item (click)="openUser(user.id)">
+        <ion-avatar item-start>
+          <img src="{{ user.avatar }}" alt="" srcset="">
+        </ion-avatar>
+        <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+      </ion-item>
+      <ion-item-options side="left">
+          <button ion-button color="primary" (click)="openEditUser(user.id)">
+            <ion-icon name="create"></ion-icon>
+            Editar
+          </button>
+          <button ion-button color="danger" (click)="deleteUser(user.id)">
+            <ion-icon name="trash"></ion-icon>
+            Excluir
+          </button>
+        </ion-item-options>
+    </ion-item-sliding>
+  </ion-item>
+
+  <ion-fab rigth bottom>
+    <botton ion-botton></botton>
+  </ion-fab>
 
 </ion-content>

@@ -1,6 +1,7 @@
+import { CreateAccountPageModule } from './../create-account/create-account.module';
 import { UserProvider } from './../../providers/user/user';
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, ToastController, InfiniteScroll } from 'ionic-angular';
 
 
 @IonicPage()
@@ -13,6 +14,8 @@ export class UserListPage {
   users: any[];
   page: number;
 
+  @ViewChild(InfiniteScroll) infiniteScroll: InfiniteScroll;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private toast: ToastController, private userProvider: UserProvider) {
   }
@@ -20,6 +23,7 @@ export class UserListPage {
   ionViewDidEnter() {
     this.users = [];
     this.page = 1;
+    this.getAllUsers(this.page);
   }
 
   getAllUsers(page: number) {
@@ -32,6 +36,15 @@ export class UserListPage {
         for(var i = 0; i < result.data.lenght; i++){
           var user = result.data[i];
           this.users.push(user);
+        }
+
+        if(this.infiniteScroll){
+          this.infiniteScroll.complete();
+
+          if(this.users.length == result.total){
+            this.infiniteScroll.enable(false);
+          }
+
         }
 
       })
@@ -91,7 +104,8 @@ export class UserListPage {
       this.users.splice(index, 1);
 
       this.toast.create({
-        message: 'Usuário deletado com sucesso.', position: 'bottom', duration: 3000}).present();
+        message: 'Usuário deletado com sucesso.',
+         position: 'bottom', duration: 3000}).present();
 
     })
     .catch((error: any) => {

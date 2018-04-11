@@ -23,6 +23,7 @@ export class UserListPage {
   ionViewDidEnter() {
     this.users = [];
     this.page = 1;
+    this.infiniteScroll.enable(true);
     this.getAllUsers(this.page);
   }
 
@@ -38,6 +39,8 @@ export class UserListPage {
           this.users.push(user);
         }
 
+        //paginação
+        
         if(this.infiniteScroll){
           this.infiniteScroll.complete();
 

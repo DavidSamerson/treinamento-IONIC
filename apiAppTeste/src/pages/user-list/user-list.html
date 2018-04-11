@@ -30,6 +30,12 @@
     </ion-item-sliding>
   </ion-item>
 
+  <ion-infinite-scroll (ionInfinite)="getUser($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles">
+
+      </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
   <ion-fab rigth bottom>
     <botton ion-fab color="light" (click)="openCreateUser()">
       <ion-icon name="add"></ion-icon>

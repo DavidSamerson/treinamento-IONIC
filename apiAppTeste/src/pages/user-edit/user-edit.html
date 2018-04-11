@@ -15,4 +15,17 @@
 
 <ion-content padding>
 
+  <ion-list>
+    <ion-item>
+      <ion-label>Nome</ion-label>
+      <ion-input type="text" name="first_name" [(ngModel)]="model.first_name" ></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>Sobrenome</ion-label>
+        <ion-input type="text" name="last_name" [(ngModel)]="model.last_name" ></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button block color="primary" (click)="save()">Salvar</button>
+
 </ion-content>

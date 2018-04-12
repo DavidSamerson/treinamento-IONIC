@@ -114,6 +114,43 @@ export class ProductProvider {
 
   public getAll(active: boolean, name: string = null) {
 
+    return this.dbProvider.getDB()
+      .then((db: SQLiteObject) => {
+
+        let sql = 'SELECT p.*, c.name as category_name FROM products p inner join categories c on p.category_id = c.id where p.active = ?';
+        let data: any[] = [active ? 0 : 1]; //variavel que vai pro banco
+
+        if  (name) {
+
+          sql += ' and p.name like ?';
+          data.push(name);
+
+        }
+
+        return db.executeSql(sql, data)
+              .then((data: any) => {
+
+                if(data.rows.length > 0){
+
+                    // percorrer o resultado e adicionar em um objeto
+                  let products : any[] = [];
+
+                  for(var i = 0; i < data.rows.length; i++){
+
+                      var product = data.rows.item(i);
+                      products.push(product);
+                  }
+
+                  return products;
+
+                } else {
+                  return [];
+                }
+              })
+              .catch((e) => console.error(e)); //executa um SQL
+
+      })
+      .catch((e) => console.error(e));
   }
 
 }

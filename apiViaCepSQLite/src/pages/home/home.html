@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <h2>Consulta de CEP</h2>
+
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>Digite o CEP: </ion-label>
+      <ion-input type="number" name="cep" [(ngModel)]="model.cep" placeholder="ex: 60332330"></ion-input>
+    </ion-item>
+  </ion-list>
+
+ <button ion-button block  color="primary" (click)="pesquiseCep()"> Pesquisar CEP </button>
+
+</ion-content>

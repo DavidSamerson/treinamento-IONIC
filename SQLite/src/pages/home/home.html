@@ -14,14 +14,20 @@
 
     <ion-item-sliding *ngFor="let product of products">
       <button ion-item (click)="editProduct(product.id)">
+
         <h1>{{ product.name }}</h1>
         <h2>{{ product.category_name }}</h2>
         <h2>{{ product.duedate | date: 'dd/MM/yyyy' }}</h2>
         <h2>{{ product.price | currency : 'BRL' :true }}</h2>
+        <!-- | significa configuração, algo do tipo no HTML ->
+
       </button>
 
+      <!-- Icone de excluir ao passar pro lado -->
       <ion-item-options side="left">
         <button ion-button color="danger" (click)="removeProduct(product)" ></button>
+        <ion-icon name="trash"></ion-icon> Excluir
+        </ion-icon>
       </ion-item-options>
 
     </ion-item-sliding>

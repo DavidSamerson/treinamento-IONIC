@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
@@ -21,12 +21,18 @@ export class LoginProvider {
     let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
+      // const headers = new HttpHeaders({
+      //   'Content-Type': 'application/json; charset=utf-8',
+      //   id: '105',
+      //   user_id: '90'
+      // });
+
     let body = new FormData();
-    body.append('grant_type','password');
-    body.append('client_id','3MVG9AzPSkglhtps5GKCVvVsZxbvTiThV6KhFCwSatL6665Syr5ZKsZCRFZDK1Yu3K0xjPIWUHO7FciqL2kr7');
-    body.append('client_secret','8770981992942896379');
-    body.append('username', email);
-    body.append('password', password);
+        body.append('grant_type','password');
+        body.append('client_id','3MVG9AzPSkglhtps5GKCVvVsZxbvTiThV6KhFCwSatL6665Syr5ZKsZCRFZDK1Yu3K0xjPIWUHO7FciqL2kr7');
+        body.append('client_secret','8770981992942896379');
+        body.append('username', email);
+        body.append('password', password);
 
     let options = new RequestOptions({ headers: headers });
 

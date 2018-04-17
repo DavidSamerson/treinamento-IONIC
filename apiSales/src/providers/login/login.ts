@@ -9,21 +9,32 @@ import 'rxjs/Rx';
 @Injectable()
 export class LoginProvider {
 
+  
   private API_URL = "https://cs96.salesforce.com/services/oauth2/token";
   // private token = "";
 
-  constructor(public http: Http) {
+  constructor( private http: Http) {
     console.log('Entrando na provider de Login');
   }
 
   login (email: string, password: string) {
 
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/x-www-form-urlencoded');
-    let options = new RequestOptions({ headers: headers });
+  //  let headers = new Headers();
+  //   headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    //PROCURAR DOCUMENTAçÂO HTTP DO IONIC
+  //   let data = JSON.stringify({body: 'grant_type=password&client_id=3MVG9AzPSkglhtps5GKCVvVsZxbvTiThV6KhFCwSatL6665Syr5ZKsZCRFZDK1Yu3K0xjPIWUHO7FciqL2kr7&client_secret=8770981992942896379&username=wbatista@moldsoft.com.br.devry.testes&password=w89018423rQDsBmsZsBOeCaDqkm4evap6';
+  // });
 
+  let headers = new Headers(
+    {
+      'Content-Type' : 'application/x-www-form-urlencoded'
+    });
+
+    let options = new RequestOptions ({ headers: headers });
+    options.body = 'grant_type=password&client_id=3MVG9AzPSkglhtps5GKCVvVsZxbvTiThV6KhFCwSatL6665Syr5ZKsZCRFZDK1Yu3K0xjPIWUHO7FciqL2kr7&client_secret=8770981992942896379&username=wbatista@moldsoft.com.br.devry.testes&password=w89018423rQDsBmsZsBOeCaDqkm4evap6';
+    options.method = 'post';
+    options.url = 'https://cs96.salesforce.com/services/oauth2/token';
+    
     //solução 1 -----------------------
     // let data = "grant_type=password"+
     //       "&client_id=3MVG9AzPSkglhtps5GKCVvVsZxbvTiThV6KhFCwSatL6665Syr5ZKsZCRFZDK1Yu3K0xjPIWUHO7FciqL2kr7"+
@@ -45,18 +56,15 @@ export class LoginProvider {
     //     body.append('password', password);
 
 
-    var body = JSON.stringify({
-    grant_type: 'password', 
-    client_id: '3MVG9AzPSkglhtps5GKCVvVsZxbvTiThV6KhFCwSatL6665Syr5ZKsZCRFZDK1Yu3K0xjPIWUHO7FciqL2kr7',
-    client_secret: '8770981992942896379',
-    username: email,
-    password: password});
+    //var body = "grant_type=password&client_id=3MVG9AzPSkglhtps5GKCVvVsZxbvTiThV6KhFCwSatL6665Syr5ZKsZCRFZDK1Yu3K0xjPIWUHO7FciqL2kr7&client_secret=8770981992942896379&username=wbatista@moldsoft.com.br.devry.testes&password=w89018423rQDsBmsZsBOeCaDqkm4evap6";
  
-    console.log(body);
+    // console.log(this.API_URL);
+    // console.log(body);
+    // console.log(options);
 
     return new Promise((resolve, reject) => {
 
-      this.http.post(this.API_URL, body , options)
+      this.http.post(this.API_URL, options.body, options)
         .subscribe((result: any) => {
           console.log("Requisição efetuada");
           resolve(result.json());
@@ -65,14 +73,14 @@ export class LoginProvider {
             reject(error.json());
             console.log("Erro na requisição");
           });
-        // .map(res => res.json())
-        // .subscribe(
-        //     data => {
-        //       console.log(data);
-        //     },
-        //     error => {
-        //       console.log("Error! Message: ", error);
-        //     });
+    //     .map(res => res.json())
+    //     .subscribe(
+    //         data => {
+    //           console.log(data);
+    //         },
+    //         error => {
+    //           console.log("Error! Message: ", error);
+    //         });
     });
   }
 

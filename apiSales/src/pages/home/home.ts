@@ -1,3 +1,4 @@
+import { RequestOptions } from '@angular/http';
 import { LoginProvider } from './../../providers/login/login';
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
@@ -23,7 +24,8 @@ export class HomePage {
   efetuarLogin() {
     this.loginProvider.login (this.modelLogin.email, this.modelLogin.senha)
     .then((result: any) => {
-      this.toast.create({ message: 'Usuário logado com sucesso.', position: 'botton', duration: 3000 }).present();
+      
+      this.toast.create({ message: 'Usuário logado com sucesso.' + result.data.get('id') , position: 'botton', duration: 3000 }).present();
     })
     .catch((error: any) => {
       this.toast.create({ message: 'Erro ao efetuar login. Erro do tipo: ' + error.error, position: 'botton', duration: 3000 }).present();

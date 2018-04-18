@@ -22,16 +22,19 @@ export class HomePage {
   }
 
   efetuarLogin() {
-    this.loginProvider.login (this.modelLogin.email, this.modelLogin.senha)
+    this.loginProvider.login2 (this.modelLogin.email, this.modelLogin.senha)
     .then((result: any) => {
       
-      this.toast.create({ message: 'Usuário logado com sucesso.' + result.data.get('id') , position: 'botton', duration: 3000 }).present();
+      this.toast.create({ message: 'Usuário logado com sucesso. teste2: ' + result.toString() +  result.data['id'] 
+      + result.json() , position: 'botton', duration: 3000 }).present();
+    
     })
     .catch((error: any) => {
-      this.toast.create({ message: 'Erro ao efetuar login. Erro do tipo: ' + error.error, position: 'botton', duration: 3000 }).present();
+
+      this.toast.create({ message: 'Erro ao efetuar login. Erro do tipo Teste: ' + error.error, position: 'botton', duration: 3000 }).present();
+    
     });
   }
-
 }
  export class Usuario {
    email: string;

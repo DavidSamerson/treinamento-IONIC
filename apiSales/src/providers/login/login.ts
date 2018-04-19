@@ -1,6 +1,7 @@
+import { HTTP } from '@ionic-native/http';
 import { ToastController } from 'ionic-angular';
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions, Headers } from '@angular/http';
+import { RequestOptions, Headers} from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
@@ -14,7 +15,7 @@ export class LoginProvider {
   private API_URL = "https://cs96.salesforce.com/services/oauth2/token";
   // private token = "";
 
-  constructor(private http: Http, public toast: ToastController) {
+  constructor(private http: HTTP, public toast: ToastController) {
     console.log('Entrando na provider de Login');
   }
 
@@ -70,7 +71,8 @@ export class LoginProvider {
     return new Promise((resolve, reject) => {
 
       this.http.post(this.API_URL, options.body, options)
-        .subscribe((result: any) => {
+        // .subscribe
+        .then((result: any) => {
 
           this.toast.create({
             message: 'Entrou  no certo e gerou: ' + result.toString() + result.data['id']
@@ -78,22 +80,22 @@ export class LoginProvider {
           }).present();
 
           console.log("Requisição efetuada");
-          resolve(result.json());
+          // resolve(result.json());
         },
           (error) => {
 
-            reject(error.json());
+            // reject(error.json());
             console.log("Erro na requisição");
           });
 
-      //     .map(res => res.json())
-      //     .subscribe(
-      //         data => {
-      //           console.log(data);
-      //         },
-      //         error => {
-      //           console.log("Error! Message: ", error);
-      //         });
+          // .map(res => res.json())
+          // .subscribe(
+          //     data => {
+          //       console.log(data);
+          //     },
+          //     error => {
+          //       console.log("Error! Message: ", error);
+          //     });
     });
   }
 

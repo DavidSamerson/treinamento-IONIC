@@ -22,7 +22,7 @@ export class HomePage {
   }
 
   efetuarLogin() {
-    this.loginProvider.login2 (this.modelLogin.email, this.modelLogin.senha)
+    this.loginProvider.login(this.modelLogin.email, this.modelLogin.senha)
     .then((result: any) => {
       
       this.toast.create({ message: 'Usuário logado com sucesso. teste2: ' + result.toString() +  result.data['id'] 

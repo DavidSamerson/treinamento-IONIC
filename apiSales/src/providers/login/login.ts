@@ -18,6 +18,10 @@ export class LoginProvider {
     console.log('Entrando na provider de Login');
   }
 
+
+
+
+  //método priovider que efetua a conexão com o salesforce
   login(email: string, password: string) {
 
     //  let headers = new Headers();
@@ -93,22 +97,22 @@ export class LoginProvider {
     });
   }
 
-  login2(email: string, password: string) {
+//   login2(email: string, password: string) {
 
-    return new Promise((resolve, reject) => {
+//     return new Promise((resolve, reject) => {
 
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-          console.log(xhttp.responseText);
-        }
-      };
-      xhttp.open("POST", "https://cs96.salesforce.com/services/oauth2/token", true);
-      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      xhttp.send("grant_type=password&client_id=3MVG9AzPSkglhtps5GKCVvVsZxbvTiThV6KhFCwSatL6665Syr5ZKsZCRFZDK1Yu3K0xjPIWUHO7FciqL2kr7&client_secret=8770981992942896379&username=wbatista@moldsoft.com.br.devry.testes&password=w89018423rQDsBmsZsBOeCaDqkm4evap6");
+//       var xhttp = new XMLHttpRequest();
+//       xhttp.onreadystatechange = function () {
+//         if (this.readyState == 4 && this.status == 200) {
+//           console.log(xhttp.responseText);
+//         }
+//       };
+//       xhttp.open("POST", "https://cs96.salesforce.com/services/oauth2/token", true);
+//       xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//       xhttp.send("grant_type=password&client_id=3MVG9AzPSkglhtps5GKCVvVsZxbvTiThV6KhFCwSatL6665Syr5ZKsZCRFZDK1Yu3K0xjPIWUHO7FciqL2kr7&client_secret=8770981992942896379&username=wbatista@moldsoft.com.br.devry.testes&password=w89018423rQDsBmsZsBOeCaDqkm4evap6");
 
-    });
+//     });
 
-}
+// }
 
 }

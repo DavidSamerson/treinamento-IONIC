@@ -32,6 +32,6 @@ import { LoginProvider } from '../providers/login/login';
     HTTP,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LoginProvider
-  ]
+  ],
 })
 export class AppModule {}

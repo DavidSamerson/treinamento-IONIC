@@ -11,9 +11,9 @@ export class HomePage {
 
   modelLogin : Usuario;
 
-  constructor(public navCtrl: NavController, 
+  constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    private toast: ToastController, 
+    private toast: ToastController,
     private loginProvider: LoginProvider) {
 
       this.modelLogin = new Usuario();
@@ -22,17 +22,31 @@ export class HomePage {
   }
 
   efetuarLogin() {
+
+    let data = this.loginProvider.login2();
+    // .then((result: any) => {
+
+    //   this.toast.create({ message: 'Usuário logado com sucesso. teste2: ' + result.toString() +  result.data['id']
+    //   + result.json() , position: 'botton', duration: 3000 }).present();
+
+    // })
+    // .catch((error: any) => {
+
+    //   this.toast.create({ message: 'Erro ao efetuar login. Erro do tipo Teste: ' + error.error, position: 'botton', duration: 3000 }).present();
+
+    // });
+
     this.loginProvider.login(this.modelLogin.email, this.modelLogin.senha)
     .then((result: any) => {
-      
-      this.toast.create({ message: 'Usuário logado com sucesso. teste2: ' + result.toString() +  result.data['id'] 
+
+      this.toast.create({ message: 'Usuário logado com sucesso. teste2: ' + result.toString() +  result.data['id']
       + result.json() , position: 'botton', duration: 3000 }).present();
-    
+
     })
     .catch((error: any) => {
 
       this.toast.create({ message: 'Erro ao efetuar login. Erro do tipo Teste: ' + error.error, position: 'botton', duration: 3000 }).present();
-    
+
     });
   }
 }

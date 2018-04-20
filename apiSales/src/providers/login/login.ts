@@ -43,6 +43,8 @@ export class LoginProvider {
 
               },
               error => {
+
+                this.toast.create({ message: ' Erro2 ' , position: 'botton', duration: 3000000000000000000000000000 }).present();
                 console.log("Error! Message: ", error);
               });
             // });
@@ -111,6 +113,8 @@ export class LoginProvider {
           // resolve(result.json());
         },
           (error) => {
+
+            this.toast.create({ message: ' Erro. ' , position: 'botton', duration: 3000000000000000000000000000 }).present();
 
             // reject(error.json());
             console.log("Erro na requisição");

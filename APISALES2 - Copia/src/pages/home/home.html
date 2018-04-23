@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding text-center>
+  Aplicativo de Teste de Login Salesforce
+  
+  <ion-list>
+
+    <ion-item>
+      <ion-label fixed>email</ion-label>
+      <ion-input type="email" value="wbatista@moldsoft.com.br.devry.testes" [(ngModel)]="modelLogin.email"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label fixed>senha</ion-label>
+      <ion-input type="password" value="w89018423rQDsBmsZsBOeCaDqkm4evap6" [(ngModel)]="modelLogin.senha"></ion-input>
+    </ion-item>
+  
+  </ion-list>
+
+  <div padding>
+    <button block (click)="efetuarLogin()"><ion-icon name="log-in"></ion-icon>Entrar</button>
+  </div>
+
+</ion-content>

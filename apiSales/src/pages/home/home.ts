@@ -1,4 +1,3 @@
-import { RequestOptions } from '@angular/http';
 import { LoginProvider } from './../../providers/login/login';
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
@@ -23,7 +22,9 @@ export class HomePage {
 
   efetuarLogin() {
 
-    let data = this.loginProvider.login2();
+    // let data = this.loginProvider.login2();
+    // console.log(data);
+
     // .then((result: any) => {
 
     //   this.toast.create({ message: 'Usuário logado com sucesso. teste2: ' + result.toString() +  result.data['id']

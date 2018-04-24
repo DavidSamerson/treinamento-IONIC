@@ -66,27 +66,24 @@ export class LoginProvider {
     //cabeçalho
     let header = JSON.stringify({
       "Content-Type": "application/x-www-form-urlencoded",
-      "Access-Control-Allow-Origin": "https://localhost:8100"
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Credentials" : "true"
     });
-    let headers = new Headers({
-      "Content-Type": "application/x-www-form-urlencoded",
-      "Access-Control-Allow-Origin": "https://localhost:8100"
-    });
+    let headers = new Headers();
+        headers.append("Content-Type", "application/x-www-form-urlencoded");
+        headers.append("Access-Control-Allow-Credentials","true");
+        headers.append("Access-Control-Allow-Origin", "*");
 
     let options = new RequestOptions({ headers: headers });
 
-    //métodos de configuração do objeto de RequestOptions
-    options.body =
-      "grant_type=password&client_id=3MVG9AzPSkglhtps5GKCVvVsZxbvTiThV6KhFCwSatL6665Syr5ZKsZCRFZDK1Yu3K0xjPIWUHO7FciqL2kr7&client_secret=8770981992942896379&username=wbatista@moldsoft.com.br.devry.testes&password=w89018423rQDsBmsZsBOeCaDqkm4evap6";
-    options.method = "post";
-    options.url = "https://cs96.salesforce.com/services/oauth2/token";
-
-    let bodyteste = JSON.stringify(
+    let bodyteste =
       "grant_type=password&client_id=3MVG9AzPSkglhtps5GKCVvVsZxbvTiThV6KhFCwSatL6665Syr5ZKsZCRFZDK1Yu3K0xjPIWUHO7FciqL2kr7&client_secret=8770981992942896379&username=wbatista@moldsoft.com.br.devry.testes&password=w89018423rQDsBmsZsBOeCaDqkm4evap6"
-    );
+    ;
+
+    console.log(bodyteste);
 
     return new Promise((resolve, reject) => {
-      this.http.post(this.API_URL, bodyteste, options).subscribe(
+      this.http.post(this.API_URL, bodyteste,options).subscribe(
         (result: any) => {
           resolve(result.json());
 
@@ -155,14 +152,20 @@ export class LoginProvider {
       "https://cs96.salesforce.com/services/oauth2/token",
       true
     );
+
+
     xhttp.setRequestHeader(
       "Content-type",
       "application/x-www-form-urlencoded"
     );
     xhttp.setRequestHeader(
     "Access-Control-Allow-Origin",
-    "https://localhost:8100/*"
+    "*"
      );
+     xhttp.setRequestHeader(
+     "Access-Control-Allow-Credentials" , "true"
+    );
+
 
     let data = xhttp.send(
       "grant_type=password&" +

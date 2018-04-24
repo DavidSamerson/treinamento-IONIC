@@ -36,6 +36,7 @@ export class HomePage {
       });
 
     this.loginProvider.loginViaPost(this.modelLogin.email, this.modelLogin.senha);
+    // this.loginProvider.loginViaPost2(this.modelLogin.email, this.modelLogin.senha);
 
     }
 }

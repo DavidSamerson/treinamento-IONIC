@@ -11,7 +11,7 @@ import "rxjs/Rx";
 
 @Injectable()
 export class LoginProvider {
-  private API_URL = "https://cs96.salesforce.com/services/oauth2/token";
+  private API_URL = "https://localhost:8100/cs96.salesforce.com/services/oauth2/token";
 
   constructor(
     public http: Http,

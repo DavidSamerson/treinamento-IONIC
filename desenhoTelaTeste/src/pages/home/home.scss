@@ -1,0 +1,33 @@
+page-home {
+    .testeInfo{
+      max-width: 20px;
+      padding: 0px 10px 0px 0px;
+    }
+
+    .opcaoSliding {
+      font-size: 400%;
+    }
+
+    .textoSliding {
+      font-size: 70%;
+    }
+
+    .resultadoTexto {
+      text-overflow: ellipsis !important;
+      overflow: hidden;
+      padding-left: 0;
+    }
+
+    .areaSeta {
+      padding: 0px;
+    }
+
+    ion-item-sliding{
+      padding: 0px;
+    }
+
+    .areaNome {
+      padding: 0;
+    }
+   }
+

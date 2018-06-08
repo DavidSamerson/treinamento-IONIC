@@ -3,57 +3,63 @@
 -->
 <ion-header>
 
-    <ion-navbar color="danger">
-      <ion-title>testeInfo</ion-title>
-    </ion-navbar>
+  <ion-navbar color="moldsoft1">
+    <ion-title>testeInfo</ion-title>
+  </ion-navbar>
+  <ion-toolbar color="moldsoft1">
+    <ion-searchbar 
+    [(ngModel)]="minhaPesquisa" 
+    [showCancelButton]="shouldShowCancel" 
+    (ionInput)="pesquisarItens($event)" 
+    (ionCancel)="onCancel($event)">
+    </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
 
-  </ion-header>
 
-  <ion-content padding>
-       
-    <!-- <h1>{{ categories | json }}</h1> -->
+<ion-content padding>
 
-    <ion-list>
+  <ion-list-header color="moldsoft1" class="cabecalhoPrincipal" no-border >
+      <ion-icon ios="ios-albums-outline" name="ios-albums-outline" md="md-albums" item-start></ion-icon>
+      <h1>ÁREA DE TESTES</h1>
+  </ion-list-header>
 
-        <ion-list-header>
-            <h2 align="center">ÁREA DE TESTES</h2>
-        </ion-list-header>
+  <ion-list>
+    <ion-item-sliding *ngFor="let resultado of categories">
 
-      <ion-item-sliding *ngFor="let resultado of categories" >
-
-        <button ion-item class="resultadoTexto" (click)="editarPessoa(resultado.id_user)" >
+      <button ion-item class="resultadoTexto" (click)="editarPessoa(resultado.id_user)">
         <ion-grid>
           <ion-row>
             <ion-col col-1 align-self-center float-left class="areaSeta" color="moldsoft1">
-                <img src="assets/imgs/icones/seta-direita.png" alt="seta-direita" class="testeInfo">
+              <img src="assets/imgs/icones/seta-direita.png" alt="seta-direita" class="testeInfo">
             </ion-col>
             <ion-col col-11 float-right class="areaNome">
-          <h1 class="resultadoTexto">{{ resultado.name }}</h1>
-          <h4 class="resultadoTexto">{{ resultado.email }}</h4>
-          <h4 class="resultadoTexto">{{ resultado.mobilePhone }}</h4>
-          <h4 class="resultadoTexto">{{ resultado.status }}</h4>
-        </ion-col>
-        </ion-row>
+              <h1 class="resultadoTexto"><ion-icon class="iconesContato" name="ios-contact-outline" color="moldsoft1" item-start></ion-icon>{{ resultado.name }}</h1>
+              <h4 class="resultadoTexto"><ion-icon class="iconesContato" name="ios-at-outline" color="moldsoft1" item-start></ion-icon>{{ resultado.email }}</h4>
+              <h4 class="resultadoTexto"><ion-icon class="iconesContato" name="ios-call-outline" color="moldsoft1" item-start *ngIf = "resultado.mobilePhone"></ion-icon>{{ resultado.mobilePhone }}</h4>
+              <h4 class="resultadoTexto"> <ion-icon class="iconesContato" name="ios-done-all-outline" color="moldsoft1" item-start></ion-icon>{{ resultado.status }}</h4>
+            </ion-col>
+          </ion-row>
         </ion-grid>
+      </button>
+
+      <ion-item-options icon-start side="left" (ionSwipe)="apagarPessoa(resultado.id_user)">
+        <button ion-button expandable color="danger" (click)="apagarPessoa(resultado.id_user)">
+          <ion-icon name="md-trash" class="opcaoSliding"></ion-icon>
+          <span class="textoSliding" item-end>Excluir</span>
         </button>
+        <button ion-button color="moldsoft1" (click)="editarPessoa(resultado.id_user)">
+          <ion-icon name="md-paper" class="opcaoSliding"></ion-icon>
+          <span class="textoSliding" item-end>Editar</span>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 
-        <ion-item-options icon-start side="left" (ionSwipe)="apagarPessoa(resultado.id_user)">
-          <button ion-button expandable color="danger" (click)="apagarPessoa(resultado.id_user)">
-            <ion-icon name="md-trash" class="opcaoSliding"></ion-icon>
-            <span class="textoSliding">Excluir</span>
-          </button>
-          <button ion-button color="primary" (click)="editarPessoa(resultado.id_user)">
-            <ion-icon name="md-paper" class="opcaoSliding"></ion-icon>
-            <span class="textoSliding">Editar</span>
-          </button>
-        </ion-item-options>
-      </ion-item-sliding>
-    </ion-list>
+  <!-- Variavel abaixo printa a resposta setada em resultado2 na .ts-->
+  <!-- {{resultado2 | json}} -->
 
-    <!-- Variavel abaixo printa a resposta setada em resultado2 na .ts-->
-    <!-- {{resultado2 | json}} -->
-
-    <!-- <ion-row align-items-center>
+  <!-- <ion-row align-items-center>
       <ion-col col-12 col-md-12 class="areaLogo">
         <ion-list>
           <ion-item-sliding *ngFor="let result of resultado2">
@@ -83,4 +89,15 @@
     </ion-row> -->
 
 
-  </ion-content>
+  <ion-fab bottom right>
+    <button ion-fab color="moldsoft3" (click)="criarPessoa()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+  <!-- <h1>{{ categories | json }}</h1> -->
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

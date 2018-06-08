@@ -9,6 +9,8 @@ export class HomePage {
 
   resultado2: Array<Object> = [];
   categories: Array<Object> = [];
+  count: any;
+  minhaPesquisa: any;
 
   constructor(public navCtrl: NavController) {
 
@@ -31,9 +33,78 @@ export class HomePage {
       "email": "luanasilva45261@gmail.com",
       "mobilePhone": "(98) 98313-6074",
       "status": "Tentativa"
-  }];
+  },
+  {
+    "id": "00QA000001TL1X7MAL",
+    "name": "Luana da Silva Cruz",
+    "email": "luanasilva45261@gmail.com",
+    "mobilePhone": "(98) 98313-6074",
+    "status": "Tentativa"
+},
+{
+  "id": "00QA000001TL1X7MAL",
+  "name": "Luana da Silva Cruz",
+  "email": "luanasilva45261@gmail.com",
+  "mobilePhone": "(98) 98313-6074",
+  "status": "Tentativa"
+},
+{
+  "id": "00QA000001TL1X7MAL",
+  "name": "Luana da Silva Cruz",
+  "email": "luanasilva45261@gmail.com",
+  "mobilePhone": "(98) 98313-6074",
+  "status": "Tentativa"
+},
+{
+  "id": "00QA000001TL1X7MAL",
+  "name": "Luana da Silva Cruz",
+  "email": "luanasilva45261@gmail.com",
+  "mobilePhone": "(98) 98313-6074",
+  "status": "Tentativa"
+},
+{
+  "id": "00QA000001TL1X7MAL",
+  "name": "Luana da Silva Cruz",
+  "email": "luanasilva45261@gmail.com",
+  "mobilePhone": "(98) 98313-6074",
+  "status": "Tentativa"
+},
+{
+  "id": "00QA000001TL1X7MAL",
+  "name": "Luana da Silva Cruz",
+  "email": "luanasilva45261@gmail.com",
+  "mobilePhone": "(98) 98313-6074",
+  "status": "Tentativa"
+},
+{
+  "id": "00QA000001TL1X7MAL",
+  "name": "Luana da Silva Cruz",
+  "email": "luanasilva45261@gmail.com",
+  "mobilePhone": "(98) 98313-6074",
+  "status": "Tentativa"
+},
+{
+  "id": "00QA000001TL1X7MAL",
+  "name": "Luana da Silva Cruz",
+  "email": "luanasilva45261@gmail.com",
+  "mobilePhone": "(98) 98313-6074",
+  "status": "Tentativa"
+},
+{
+  "id": "00QA000001TL1X7MAL",
+  "name": "Luana da Silva Cruz",
+  "email": "luanasilva45261@gmail.com",
+  "mobilePhone": "(98) 98313-6074",
+  "status": "Tentativa"
+},
+{
+  "id": "00QA000001TL1X7MAL",
+  "name": "Luana da Silva Cruz",
+  "email": "luanasilva45261@gmail.com",
+  "mobilePhone": "(98) 98313-6074",
+  "status": "Tentativa"
+}];
    this.resultado2 = [] ;
   }
-
-
+ 
 }

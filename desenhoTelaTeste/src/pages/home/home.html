@@ -7,8 +7,8 @@
     <ion-title>testeInfo</ion-title>
   </ion-navbar>
   <ion-toolbar color="moldsoft1">
+    <!-- [(ngModel)]="minhaPesquisa"  -->
     <ion-searchbar 
-    [(ngModel)]="minhaPesquisa" 
     [showCancelButton]="shouldShowCancel" 
     (ionInput)="pesquisarItens($event)" 
     (ionCancel)="onCancel($event)">
@@ -22,6 +22,9 @@
   <ion-list-header color="moldsoft1" class="cabecalhoPrincipal" no-border >
       <ion-icon ios="ios-albums-outline" name="ios-albums-outline" md="md-albums" item-start></ion-icon>
       <h1>ÁREA DE TESTES</h1>
+      <ion-fab middle right edge >
+        <button color="moldsoft3" ion-fab mini> {{ count }} </button>
+      </ion-fab>
   </ion-list-header>
 
   <ion-list>
@@ -34,22 +37,25 @@
               <img src="assets/imgs/icones/seta-direita.png" alt="seta-direita" class="testeInfo">
             </ion-col>
             <ion-col col-11 float-right class="areaNome">
-              <h1 class="resultadoTexto"><ion-icon class="iconesContato" name="ios-contact-outline" color="moldsoft1" item-start></ion-icon>{{ resultado.name }}</h1>
+              <h1 class="resultadoTexto"><ion-icon class="iconesContato iconesContato2" name="ios-contact-outline" color="moldsoft1" item-start></ion-icon>{{ resultado.name }}</h1>
               <h4 class="resultadoTexto"><ion-icon class="iconesContato" name="ios-at-outline" color="moldsoft1" item-start></ion-icon>{{ resultado.email }}</h4>
-              <h4 class="resultadoTexto"><ion-icon class="iconesContato" name="ios-call-outline" color="moldsoft1" item-start *ngIf = "resultado.mobilePhone"></ion-icon>{{ resultado.mobilePhone }}</h4>
+              <h4 class="resultadoTexto"  *ngIf = "resultado.mobilePhone != null"><ion-icon class="iconesContato" name="ios-call-outline" color="moldsoft1" item-start></ion-icon>{{ resultado.mobilePhone }}</h4> <!-- *ngIf = "resultado.mobilePhone" -->
               <h4 class="resultadoTexto"> <ion-icon class="iconesContato" name="ios-done-all-outline" color="moldsoft1" item-start></ion-icon>{{ resultado.status }}</h4>
             </ion-col>
           </ion-row>
         </ion-grid>
       </button>
 
-      <ion-item-options icon-start side="left" (ionSwipe)="apagarPessoa(resultado.id_user)">
+      <ion-item-options icon-start class="opcoesEditarExcluir" side="left" (ionSwipe)="apagarPessoa(resultado.id_user)">
         <button ion-button expandable color="danger" (click)="apagarPessoa(resultado.id_user)">
-          <ion-icon name="md-trash" class="opcaoSliding"></ion-icon>
+                <h1 class="h1"><ion-icon name="md-trash"></ion-icon></h1>
+                <!-- class="opcaoSliding" -->
           <span class="textoSliding" item-end>Excluir</span>
         </button>
-        <button ion-button color="moldsoft1" (click)="editarPessoa(resultado.id_user)">
-          <ion-icon name="md-paper" class="opcaoSliding"></ion-icon>
+
+        <button ion-button class="opcoesEditarExcluir" color="moldsoft1" (click)="editarPessoa(resultado.id_user)">
+                <h1 class="h1"><ion-icon name="md-paper"></ion-icon></h1>
+                <!-- class="opcaoSliding" -->
           <span class="textoSliding" item-end>Editar</span>
         </button>
       </ion-item-options>

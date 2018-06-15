@@ -9,7 +9,7 @@ export class HomePage {
 
   resultado2: Array<Object> = [];
   categories: Array<Object> = [];
-  count: any;
+  count: any = 30;
   minhaPesquisa: any;
 
   constructor(public navCtrl: NavController) {

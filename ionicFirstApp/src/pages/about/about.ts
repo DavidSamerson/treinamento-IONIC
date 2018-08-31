@@ -11,7 +11,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @IonicPage({
   name: 'AboutPage',
   segment: 'pagina-sobre/:id',
-  defaultHistory : ['HomePage']
+  defaultHistory : ['HomePage'],
+  priority: 'low'
 })
 @Component({
   selector: 'page-about',

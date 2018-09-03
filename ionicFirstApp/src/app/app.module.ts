@@ -7,11 +7,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
+import { BackgroundGreenDirective } from '../directives/background-green/background-green-directive';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    BackgroundGreenDirective
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
+import { SobrePage } from '../pages/sobre/sobre';
 @Component({
   templateUrl: 'app.html'
 })
@@ -16,7 +17,8 @@ export class MyApp {
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
 
     this.pages = [
-      {title: 'HomePage', component: HomePage}
+      {title: 'Home', component: HomePage},
+      {title: 'Sobre', component: SobrePage}
     ];
 
     platform.ready().then(() => {
@@ -28,7 +30,8 @@ export class MyApp {
   }
 
   openPage(page: {title: string, component: any}) : void {
-
+    this.nav.setRoot (page.component);
+    // this.rootPage = page.component;
   }
 }
 

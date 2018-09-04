@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { Platform, Nav } from 'ionic-angular';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { Platform, Nav, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -8,13 +8,17 @@ import { SobrePage } from '../pages/sobre/sobre';
 @Component({
   templateUrl: 'app.html'
 })
-export class MyApp {
+export class MyApp implements AfterViewInit{
 
   @ViewChild(Nav) nav : Nav;
   pages: [{title: string, component: any}];
   rootPage:any = HomePage;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(
+     platform: Platform,
+     statusBar: StatusBar,
+     splashScreen: SplashScreen,
+    public menuCtrl: MenuController) {
 
     this.pages = [
       {title: 'Home', component: HomePage},
@@ -27,6 +31,10 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+  }
+
+  ngAfterViewInit(){
+this.menuCtrl.open('menu1');
   }
 
   openPage(page: {title: string, component: any}) : void {

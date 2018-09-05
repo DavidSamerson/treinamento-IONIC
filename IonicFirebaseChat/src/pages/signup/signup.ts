@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 /**
  * Generated class for the SignupPage page.
@@ -15,11 +16,32 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SignupPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  signupForm: FormGroup;
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public formBuilder: FormBuilder) {
+
+      //não se põe aspas nas REGEX de validação
+      let emailRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+
+      //quando a regra é mais de uma, sempre é posta dentro de []
+      this.signupForm = this.formBuilder.group({
+          nome: ['', [Validators.required, Validators.minLength(3)]],
+          sobrenome: ['',[Validators.required, Validators.minLength(3)]],
+          email: ['', Validators.compose([Validators.required, Validators.pattern(emailRegex)])],
+          senha: ['', [Validators.required, Validators.minLength(6)]]
+      });
+
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SignupPage');
+
+  }
+
+  onSubmit(): void {
+    console.log('Form Submit');
   }
 
 }

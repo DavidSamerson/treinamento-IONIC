@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 
 import { FirebaseAppConfig, AngularFireModule } from 'angularfire2';
 import { SignupPage } from '../pages/signup/signup';
+import { UserProvider } from '../providers/user/user';
 //
 // - download das dependências
 //npm i -S -E angularfire2@5.0.0-rc.4 firebase@4.5.1
@@ -41,7 +42,9 @@ const firebaseAppConfig: FirebaseAppConfig = {
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    UserProvider,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    UserProvider
   ]
 })
 export class AppModule {}

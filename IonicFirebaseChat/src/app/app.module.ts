@@ -9,6 +9,9 @@ import { HomePage } from '../pages/home/home';
 
 import { FirebaseAppConfig, AngularFireModule } from 'angularfire2';
 import { SignupPage } from '../pages/signup/signup';
+//
+// - download das dependências
+//npm i -S -E angularfire2@5.0.0-rc.4 firebase@4.5.1
 
 const firebaseAppConfig: FirebaseAppConfig = {
   apiKey: "AIzaSyDo0ogZC-AiCeybr8PWWF5RmuJDQDoSZiw",

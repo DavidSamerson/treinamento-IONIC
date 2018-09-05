@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
+//Páginas
+import { SignupPage } from '../signup/signup';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -12,7 +15,7 @@ export class HomePage {
   }
 
   onSignup(): void {
-
+    this.navCtrl.push(SignupPage);
   }
 
 }

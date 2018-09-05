@@ -6,13 +6,38 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>signup</ion-title>
+  <ion-navbar color="primary">
+    <ion-title> Cadastro </ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding text-center item-center>
 
+  <h1>
+    <ion-icon class="logoAdd" name="person-add" color="primary"></ion-icon>
+  </h1>
+
+  <form action="">
+    <ion-item>
+      <ion-icon name="person" item-left color="primary"></ion-icon>
+      <ion-input type="text" placeholder="Nome"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="at" item-left color="primary"></ion-icon>
+      <ion-input type="text" placeholder="Sobrenome"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="mail" item-left color="primary"></ion-icon>
+      <ion-input type="email" placeholder="Email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="lock" item-left color="primary"></ion-icon>
+      <ion-input type="password" placeholder="Senha"></ion-input>
+    </ion-item>
+  </form>
 </ion-content>

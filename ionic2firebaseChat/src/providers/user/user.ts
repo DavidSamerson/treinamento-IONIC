@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { AngularFireModule} from 'angularFire2';
 import { User } from '../../models/user.model';
 
 
@@ -14,7 +13,7 @@ export class UserService {
   ) {
   }
 
-  create(user: User): firebase.Promise<any> {
+  create(user: User): Promise<any> {
     return this.af.database.list('/users').push(user);
   }
 

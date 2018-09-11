@@ -35,7 +35,7 @@ export class SmsServiceProvider {
     //         console.log('Error sending SMS.');
     //     });
 
-    this.sms.send('85985696552', 'Hello world!').then(() => {
+    this.sms.send('+5585985696552', 'Hello world!').then(() => {
               console.log("SMS sent.");
           }) .catch (() => {
               console.log('Error sending SMS.');

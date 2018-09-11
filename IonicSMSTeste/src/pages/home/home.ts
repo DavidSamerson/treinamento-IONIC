@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, AlertController, ToastController } from 'ionic-angular';
 
 import { SmsServiceProvider } from '../../providers/sms-service/sms-service';
 
@@ -13,16 +13,16 @@ export class HomePage {
 
   isApp: boolean;
   masks: any;
-  
+
   text = {
-    "number": "", 
+    "number": "",
     "message": "",
   };
 
   countNewSMSs = 0;
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public smsService: SmsServiceProvider) {
-  
+  constructor(public navCtrl: NavController, public toastCtrl: ToastController, public alertCtrl: AlertController, public smsService: SmsServiceProvider) {
+
     this.masks = {
       phoneNumber: ['(', '+', /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/],
       cardNumber: [/\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/],
@@ -30,18 +30,18 @@ export class HomePage {
       orderCode: [/[a-zA-z]/, ':', /\d/, /\d/, /\d/, /\d/]
     };
 	  this.isApp = (!document.URL.startsWith('http') || document.URL.startsWith('http://localhost:8080'));
-	  if (this.isApp) {
-      this.smsService.waitingForSMS()
-      .then(sms => {
-        this.countNewSMSs += 1;
-      })
-	  }
-	  else {
-		  console.log("Web Browser.");
-		  this.showAlert();
-	  }
+	  // if (this.isApp) {
+    //   this.smsService.waitingForSMS()
+    //   .then(sms => {
+    //     this.countNewSMSs += 1;
+    //   })
+	  // }
+	  // else {
+		//   console.log("Web Browser.");
+		//   this.showAlert();
+	  // }
   }
-  
+
   showAlert() {
     let alert = this.alertCtrl.create({
       title: 'Error!',
@@ -50,12 +50,19 @@ export class HomePage {
     });
     alert.present();
   }
-  
+
   sendTextMessage() {
     // Using nativa ionic SMS.
     //this.smsService.sendTextMessage(this.text.number, this.text.message);
     // Using cordova-sms-plugin.
+    this.toastCtrl.create({
+      message: 'Telefone: ' + this.text.number + " Mensg: " +  this.text.message,
+      duration: 3000,
+      position: 'top'
+    }).present();
+
     this.smsService.sendSMS(this.text.number, this.text.message);
+
   }
 
   onClickSMSList() {
@@ -74,6 +81,6 @@ export class HomePage {
     //console.log(this.text.number);
   }
 
-  
+
 
 }

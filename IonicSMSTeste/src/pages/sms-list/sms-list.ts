@@ -30,7 +30,7 @@ export class SmsListPage {
       events.subscribe('onSMSArrive', (sms) => {
         // Sms is the same argument passed in `events.publish(sms)`.
         console.log('onSMSArrive', sms);
-        
+
         this.readListSMS();
       });
   }
@@ -43,18 +43,18 @@ export class SmsListPage {
 
   readListSMS() {
 
-    let loading = this.loadingCtrl.create({
-      content: "Loading SMS..."
-    });
+    // let loading = this.loadingCtrl.create({
+    //   content: "Loading SMS..."
+    // });
 
-    this.smsService.readListSMS()
-    .then(listSMS => {
-      //console.log(listSMS);
-      this.results = listSMS;
-      this.groupMessabesByAddress();
+    // this.smsService.readListSMS()
+    // .then(listSMS => {
+    //   //console.log(listSMS);
+    //   this.results = listSMS;
+    //   this.groupMessabesByAddress();
 
-      loading.dismiss();
-    })
+    //   loading.dismiss();
+    // })
   }
 
   selectedMessage(message) {
@@ -78,9 +78,9 @@ export class SmsListPage {
         info: messages.filter(function(_el) {
           return _el.address === address;
         }).map(function(_el) { return _el; })
-      }  
+      }
     });
-    
+
     console.log(res);
     this.messages = res;
   }

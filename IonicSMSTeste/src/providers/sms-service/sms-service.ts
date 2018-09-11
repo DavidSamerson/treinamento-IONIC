@@ -1,8 +1,8 @@
 import { ToastController, Events } from 'ionic-angular';
 import { Injectable } from '@angular/core';
-//import { SMS } from '@ionic-native/sms';
+import { SMS } from '@ionic-native/sms';
 
-declare var SMS: any;
+// declare var SMS: any;
 
 /*
   Generated class for the SmsServiceProvider provider.
@@ -13,7 +13,7 @@ declare var SMS: any;
 @Injectable()
 export class SmsServiceProvider {
 
-  constructor(public toastCtrl: ToastController/*, public sms: SMS*/, public events: Events) {
+  constructor(public toastCtrl: ToastController, public sms: SMS, public events: Events) {
     console.log('Hello SmsServiceProvider Provider');
   }
 
@@ -21,56 +21,63 @@ export class SmsServiceProvider {
 
   sendSMS(number, message) {
     /*
-    SMS.sendSMS(number, message => { 
-      console.log("SMS sent."); 
-    },Error => { 
-      console.log('Error sending SMS.'); 
+    SMS.sendSMS(number, message => {
+      console.log("SMS sent.");
+    },Error => {
+      console.log('Error sending SMS.');
     });
     */
 
-    SMS.sendSMS(number, message,function(){
-      console.log("SMS sent."); 
-     }, function(e){
-      console.log('Error sending SMS.'); 
-     });
+    // this.sms.send(number, message)
+    //     .then(() => {
+    //         console.log("SMS sent.");
+    //     }) .catch (() => {
+    //         console.log('Error sending SMS.');
+    //     });
+
+    this.sms.send('85985696552', 'Hello world!').then(() => {
+              console.log("SMS sent.");
+          }) .catch (() => {
+              console.log('Error sending SMS.');
+          });
   }
-  
-  readListSMS() {  
-    console.log("readListSMS."); 
-    let filter = { 
-      box : 'inbox' , // 'inbox' (default), 'sent', 'draft' 
+
+  readListSMS() {
+    console.log("readListSMS.");
+    let filter = {
+      box : 'inbox' , // 'inbox' (default), 'sent', 'draft'
       indexFrom : 0 , // Start from index 0.
       maxCount : 20 , // Count of SMS to return each time.
-    }; 
-    return new Promise((resolve, reject) => {
-      if (SMS)SMS.listSMS(filter,(listSMS) => { 
-        console.log("SMS" , listSMS); 
-        resolve(listSMS);
-      },Error => { 
-        console.log('Error list sms:' + Error); 
-        reject(Error);
-      }); 
-    });
-  } 
-    
+    };
+    // return new Promise((resolve, reject) => {
+    //   if (this.sms)this.sms.listSMS(filter,(listSMS) => {
+    //     console.log("SMS" , listSMS);
+    //     resolve(listSMS);
+    //   },Error => {
+    //     console.log('Error list sms:' + Error);
+    //     reject(Error);
+    //   });
+    // });
+  }
+
   waitingForSMS() {
     console.log("waitingForSMS");
-    return new Promise((resolve, reject) => {
-      if (SMS)SMS.startWatch(() => { 
-        console.log('Waiting for SMS...'); 
-      },Error => { 
-        console.log('Error waiting for SMS.'); 
-      });      
-      document.addEventListener('onSMSArrive', (e: any ) => { 
-        var sms = e.data; 
-        console.log({mensaje_entrante:sms});    
-        this.events.publish('onSMSArrive', sms);   
-        resolve(sms);
-      }); 
-    });
-    
+    // return new Promise((resolve, reject) => {
+    //   if (sms)sms.startWatch(() => {
+    //     console.log('Waiting for SMS...');
+    //   },Error => {
+    //     console.log('Error waiting for SMS.');
+    //   });
+    //   document.addEventListener('onSMSArrive', (e: any ) => {
+    //     var sms = e.data;
+    //     console.log({mensaje_entrante:sms});
+    //     this.events.publish('onSMSArrive', sms);
+    //     resolve(sms);
+    //   });
+    // });
+
   }
-  
+
   /*
   sendTextMessage(number, message) {
     console.log("Number: " + number);

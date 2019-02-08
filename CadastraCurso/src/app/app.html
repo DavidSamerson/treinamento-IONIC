@@ -1,0 +1,40 @@
+  
+    <ion-nav id="nav" #content [root]="rootPage" #nav></ion-nav>
+
+    <ion-menu [content]="nav">
+        <ion-header >
+          <ion-toolbar color="background">
+            <ion-title>Menu</ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content color="background-text">
+          <ion-list>
+            <button ion-item (click)="chamaCA()" menuClose>
+              <ion-avatar item-start class="menu">
+                <ion-icon name="person-add"></ion-icon>
+              </ion-avatar>
+              Cadastro de Alunos
+            </button>
+            <button ion-item (click)="chamaLC()" menuClose>
+                <ion-avatar item-start class="menu">
+                  <ion-icon name="paper"></ion-icon>
+                </ion-avatar>
+              Cadastro de Cursos
+            </button>
+            <button ion-item (click)="chamaLA()" menuClose>
+                <ion-avatar item-start class="menu">
+                  <ion-icon name="man"></ion-icon>
+                </ion-avatar>
+              Listagem de Alunos
+            </button>
+            
+            <button ion-item (click)="sair()" menuClose>
+                <ion-avatar item-start class="menu">
+                  <ion-icon name="exit"></ion-icon>
+                </ion-avatar>
+              Sair
+            </button>
+          </ion-list>
+        </ion-content>
+      </ion-menu>
+    

@@ -1,0 +1,37 @@
+
+<ion-header>
+
+  <ion-navbar color="background">
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <div>
+      <img src="assets/imgs/Logo-CadastraCursos.jpg" alt="Logo" class="Logo">
+    </div>
+
+    <ion-item>
+      <ion-label stacked>Email ou Login</ion-label>
+      <ion-input type="text" placeholder="samerson10@gmail.com" value="samerson10@gmail.com"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label stacked>Senha</ion-label>
+      <ion-input type="password" placeholder="123456" value="123456"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+
+  <button ion-button block (click)="entrar()" color="background">Entrar</button>
+
+  <div align="center">
+    <hr>
+    <p>Ou <a href="#" (click)="cadastro()">CADASTRE-SE</a></p>
+  </div>
+
+</ion-content>

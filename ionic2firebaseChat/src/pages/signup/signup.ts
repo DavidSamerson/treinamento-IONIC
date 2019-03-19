@@ -1,9 +1,15 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { UserService } from './../../providers/user/user';
+/**
+ * Generated class for the SignupPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
+@IonicPage()
 @Component({
   selector: 'page-signup',
   templateUrl: 'signup.html',
@@ -13,31 +19,24 @@ export class SignupPage {
   signupForm: FormGroup;
 
   constructor(
-    public formBuilder : FormBuilder,
     public navCtrl: NavController,
-    public navParams: NavParams,
-    
-    public userService: UserService) {
-      let emailRegex = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9-]([a-z0-9]*[a-z0-9])?(\.[a-z0-9]([a-z0-9]*[a-z0-9])?)*$/i;
+    public formBuilder: FormBuilder
 
-      this.signupForm = this.formBuilder.group({
+  ) {
 
-        Nome: ['', [Validators.required, Validators.minLength(3)]],
-        Sobrenome: ['', [Validators.required, Validators.minLength(3)]],
-        Email: ['', [Validators.compose([Validators.required, Validators.pattern(emailRegex)])]],
-        Senha: ['', [Validators.required, Validators.minLength(6)]],
-       
-      });
-  }
+    let emailRegex = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SignupPage');
-  }
-
-  onSubmit(){
-    this.userService.create(this.signupForm.value).then(() => {
-      console.log("Usuário Cadastrado!");
+    this.signupForm = this.formBuilder.group({
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      username: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', Validators.compose([Validators.required, Validators.pattern(emailRegex)])],
+      password: ['', [Validators.required, Validators.minLength(6)]],
     });
+
+  }
+
+  onSubmit(): void {
+
   }
 
 }

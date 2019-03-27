@@ -1,0 +1,4 @@
+#Wed Mar 27 14:05:13 BRT 2019
+base.0=/home/david/GITHUB/treinamento-IONIC/SindicoOnlineTeste/platforms/android/app/build/intermediates/transforms/dex/release/0
+renamed.0=classes.dex
+file.0=/home/david/GITHUB/treinamento-IONIC/SindicoOnlineTeste/platforms/android/app/build/intermediates/transforms/dex/release/0/classes.dex

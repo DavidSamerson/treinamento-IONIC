@@ -1,0 +1,8 @@
+{
+  "name": "steemMobile",
+  "app_id": "",
+  "integrations": {
+    "gulp": {}
+  },
+  "type": "ionic-angular"
+}

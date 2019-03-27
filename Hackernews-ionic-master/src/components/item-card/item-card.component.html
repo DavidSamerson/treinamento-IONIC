@@ -1,0 +1,26 @@
+<ion-card *ngIf="item">
+  <ion-card-header>
+    <card-header [item]="item"></card-header>
+  </ion-card-header>
+
+  <ion-card-content *ngIf="item.text">
+    {{item.text | slice:0:charsShown}}
+    <span class="hide-show" *ngIf="item.text.length>charsShown && isHidden" (click)="showAll()">... Show all</span>
+    <span class="hide-show" *ngIf="!isHidden" (click)="hideAll()">Hide</span>
+  </ion-card-content>
+
+  <ion-row no-padding>
+    <!--<ion-col>-->
+      <!--<button ion-button clear small color="hacker" >-->
+        <!--{{item.score}} points-->
+      <!--</button>-->
+    <!--</ion-col>-->
+    <ion-col>
+      <button ion-button clear small color="hacker" *ngIf="item.type=='story' || item.type=='poll'"
+        (click)="openComments()">
+        <div *ngIf="item.descendants!=1">{{item.descendants}} Comments</div>
+        <div *ngIf="item.descendants==1">1 Comment</div>
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-card>

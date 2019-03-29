@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
 import { DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import { WebIntent } from '@ionic-native/web-intent';
+import { DomSanitizerImpl } from '@angular/platform-browser/src/security/dom_sanitization_service';
 
 @Component({
   selector: 'page-home',
@@ -14,8 +15,8 @@ export class HomePage {
   constructor(
     public navCtrl: NavController,
     private dom : DomSanitizer,
-    public loadingCtrl: LoadingController,
-    private webIntent: WebIntent) {
+    public loadingCtrl: LoadingController) {
+
       this.url = this.dom.bypassSecurityTrustResourceUrl("https://portalsindicoonline.force.com/alphaville/login");
   }
 
@@ -27,6 +28,7 @@ export class HomePage {
   // }
 
   transform() {
+    return this.dom.bypassSecurityTrustResourceUrl("https://portalsindicoonline.force.com/alphaville/login");
     // const options = {
     //   action: this.webIntent.ACTION_VIEW,
     //   url: 'https://portalsindicoonline.force.com/alphaville/login',

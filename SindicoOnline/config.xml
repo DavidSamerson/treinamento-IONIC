@@ -1,18 +1,16 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>SindicoOnlineTeste</name>
+    <name>SindicoOnline</name>
     <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="https://portalsindicoonline.force.com/">Ionic Framework Team</author>
+    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
     <content src="index.html" />
-    <access origin="https://portalsindicoonline.force.com" />
-    <allow-navigation href="https://portalsindicoonline.force.com" />
-    <allow-intent href="https://portalsindicoonline.force.com" />
-    <allow-intent href="https://portalsindicoonline.force.com" />
-    <allow-intent href="https://portalsindicoonline.force.com" />
-    <allow-intent href="https://portalsindicoonline.force.com" />
-    <allow-intent href="https://portalsindicoonline.force.com" />
-    <allow-intent href="https://portalsindicoonline.force.com" />
-    <allow-navigation href="https://*portalsindicoonline.force.com/*" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
     <preference name="ScrollEnabled" value="false" />
     <preference name="android-minSdkVersion" value="19" />
     <preference name="BackupWebStorage" value="none" />
@@ -23,7 +21,6 @@
     <preference name="SplashScreenDelay" value="3000" />
     <platform name="android">
         <allow-intent href="market:*" />
-        <allow-navigation href="https://portalsindicoonline.force.com" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
         <icon density="hdpi" src="resources/android/icon/drawable-hdpi-icon.png" />
@@ -83,9 +80,8 @@
     <plugin name="cordova-plugin-statusbar" spec="2.4.2" />
     <plugin name="cordova-plugin-device" spec="2.0.2" />
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
+    <plugin name="cordova-plugin-ionic-webview" spec="^3.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
-    <plugin name="cordova-plugin-themeablebrowser" spec="^0.2.17" />
-    <plugin name="cordova-plugin-ionic-webview" spec="^3.1.2" />
-    <plugin name="com-darryncampbell-cordova-plugin-intent" spec="^1.1.6" />
-    <engine name="android" spec="7.0.0" />
+    <engine name="android" spec="~7.0.0" />
+    <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
 </widget>

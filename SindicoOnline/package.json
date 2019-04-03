@@ -1,8 +1,8 @@
 {
-  "name": "SindicoOnline",
+  "name": "Sindico Online",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "author": "Moldsoft Tecnologia LTDA",
+  "homepage": "https://moldsoft.secure.force.com/",
   "private": true,
   "scripts": {
     "start": "ionic-app-scripts serve",
@@ -43,7 +43,7 @@
     "@ionic/app-scripts": "3.2.1",
     "typescript": "~2.6.2"
   },
-  "description": "An Ionic project",
+  "description": "Aplicativo da Sindico Online para acesso a comunidade, site, redes sociais e informações sobre a empresa.",
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},

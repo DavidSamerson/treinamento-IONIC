@@ -14,7 +14,11 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+      .constant('ApiEndpoint', {
+        url: 'http://localhost:8100/api'
+      });
   ],
   bootstrap: [IonicApp],
   entryComponents: [

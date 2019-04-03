@@ -2,7 +2,7 @@
   "name": "SindicoOnlineTeste",
   "version": "0.0.1",
   "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "homepage": "https://sindicoonline.my.salesforce.com/",
   "private": true,
   "scripts": {
     "start": "ionic-app-scripts serve",

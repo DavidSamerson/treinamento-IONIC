@@ -34,7 +34,7 @@ export class HomePage {
 
   chamarComunidade() {
 
-    const browser = this.iab.create('https://sindicoonline.my.salesforce.com/', "_self", this.options);
+    const browser = this.iab.create('https://portalsindicoonline.force.com/alphaville/s/', "_self", this.options);
 
   }
 

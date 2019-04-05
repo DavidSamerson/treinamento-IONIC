@@ -27,6 +27,10 @@ ion-card-header, .button-outline-md-sindicoB {
   font-size: 2em;
 }
 
+a:-webkit-any-link {
+  text-decoration: none;
+  color: #1a3c5d;
+}
 
 // App Global Sass
 // --------------------------------------------------

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="etc.sindicoonline" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="etc.sindicoonline.comunidade" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>SindicoOnline</name>
     <description>Aplicativo da Sindico Online para acesso a comunidade, site, redes sociais e informações sobre a empresa</description>
     <author email="atendimento@moldsoft.com.br" href="https://moldsoft.secure.force.com/">Moldsoft Tecnologia LTDA</author>

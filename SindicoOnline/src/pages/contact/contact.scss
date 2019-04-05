@@ -1,9 +1,19 @@
 page-contact {
 
   .end {
-
     white-space: unset !important;
-    word-wrap: break-word !important;
-
   }
+
+  ion-label {
+    margin: 0;
+    display: block;
+    overflow: hidden;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    font-size: inherit;
+    text-overflow: ellipsis;
+    white-space: initial;
+}
 }

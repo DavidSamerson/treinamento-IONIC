@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { SfdcService } from '../../providers/sfdc-service/sfdc-service';
-import { SfdcData } from '../../../../../antigo/src/providers/sfdc-data';
+import { SfdcData } from '../../providers/sfdc-data/sfdc-data';
 
 /**
  * Generated class for the NewaccountPage page.

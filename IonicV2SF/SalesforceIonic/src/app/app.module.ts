@@ -1,4 +1,3 @@
-import { SfdcService } from './../../../../antigo/src/providers/sfdc-service';
 import { SfdcData } from './../providers/sfdc-data/sfdc-data';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -8,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { SfdcService } from '../providers/sfdc-service/sfdc-service';
 
 @NgModule({
   declarations: [

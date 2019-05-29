@@ -1,10 +1,10 @@
-import { NewAccount } from './../../../../../antigo/src/pages/newaccount/newaccount';
-import { AccountDetail } from './../../../../../antigo/src/pages/accountdetail/accountdetail';
 import { Component } from '@angular/core';
 
-import {NavController,NavParams,LoadingController} from 'ionic-angular';
+import { NavController, NavParams, LoadingController, IonicPage } from 'ionic-angular';
 import { SfdcService } from '../../providers/sfdc-service/sfdc-service';
 import { SfdcData } from '../../providers/sfdc-data/sfdc-data';
+import { AccountdetailPage } from '../accountdetail/accountdetail';
+import { NewaccountPage } from '../newaccount/newaccount';
 // import { SfdcService } from "../../providers/sfdc-service";
 // import { SfdcData } from "../../providers/sfdc-data";
 // import { AccountDetail } from '../accountdetail/accountdetail';
@@ -60,14 +60,14 @@ export class AccountPage {
           delete data.attributes;
                 loader.dismiss();
                 this.accountRec = data;
-                this.navCtrl.push(AccountDetail,this.accountRec);
+                this.navCtrl.push(AccountdetailPage,this.accountRec);
     }).catch(error => console.log("ERROR" + JSON.stringify(error)));
 
 
   }
 
   createAccount(event){
-      this.navCtrl.push(NewAccount);
+      this.navCtrl.push(NewaccountPage);
   }
 
 }

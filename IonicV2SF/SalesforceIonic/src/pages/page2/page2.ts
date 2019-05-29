@@ -1,8 +1,8 @@
-import { ContactDetail } from './../../../../../antigo/src/pages/contactdetail/contactdetail';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { SfdcService } from '../../providers/sfdc-service/sfdc-service';
 import { SfdcData } from '../../providers/sfdc-data/sfdc-data';
+import { ContactdetailPage } from '../contactdetail/contactdetail';
 
 /**
  * Generated class for the Page2Page page.
@@ -57,7 +57,7 @@ export class Page2Page {
           delete data.Account.attributes;
                 loader.dismiss();
                 this.contactRec = data;
-                this.navCtrl.push(ContactDetail,this.contactRec);
+                this.navCtrl.push(ContactdetailPage,this.contactRec);
     }).catch(error => console.log("ERROR" + JSON.stringify(error)));
 
 

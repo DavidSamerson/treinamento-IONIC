@@ -1,4 +1,4 @@
-import { ContactEdit } from './../../../../../antigo/src/pages/contactedit/contactedit';
+
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { SfdcService } from '../../providers/sfdc-service/sfdc-service';
@@ -22,7 +22,11 @@ export class ContactdeditPage {
   loading : any;
 
 
-  constructor(public alertCtrl: AlertController,public navCtrl: NavController,public service: SfdcService,public navParams: NavParams,public loadingCtrl: LoadingController) {
+  constructor(public alertCtrl: AlertController,
+    public navCtrl: NavController,
+    public service: SfdcService,
+    public navParams: NavParams,
+    public loadingCtrl: LoadingController) {
     let dummyDate = this.navParams;
     this.contact = dummyDate.data;
   }

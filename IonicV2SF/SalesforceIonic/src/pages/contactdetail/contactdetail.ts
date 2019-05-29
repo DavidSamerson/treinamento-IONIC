@@ -1,6 +1,6 @@
-import { ContactEdit } from './../../../../../antigo/src/pages/contactedit/contactedit';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { ContactdeditPage } from '../contactdedit/contactdedit';
 
 /**
  * Generated class for the ContactdetailPage page.
@@ -23,7 +23,7 @@ export class ContactdetailPage {
   }
 
   editContact(event){
-    this.navCtrl.push(ContactEdit,this.contact);
+    this.navCtrl.push(ContactdeditPage,this.contact);
   }
 
 }
